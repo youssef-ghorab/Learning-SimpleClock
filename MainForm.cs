@@ -200,8 +200,16 @@ namespace Clock
             Button _startBtn, _stopBtn, _snapshotBtn, _resetBtn, _clearSnapshotsBtn;
             ProgressBar _prgrssBr;
             ComboBox _snapshotsCmbBx;
+            NotifyIcon notifyIcon = new NotifyIcon();
             System.Windows.Forms.Timer _updateUITimer = new System.Windows.Forms.Timer();
             enum Status {Start, Stop, Reset, ClearSnapshots, Done};
+
+            void initNotifyicon()
+            {
+                notifyIcon.Visible = true;
+                notifyIcon.BalloonTipTitle = "Timer Timeout";
+                notifyIcon.Icon = SystemIcons.Information;
+            }
 
             public TimerManager(MaskedTextBox timer_txtBx,Button start_btn,Button stop_btn,Button snapshot_btn,Button reset_btn,ProgressBar prgrssBr,ComboBox snapshots_cmbBx,Button clear_snapshots_btn)
             {
@@ -215,6 +223,13 @@ namespace Clock
                 _snapshotsCmbBx = snapshots_cmbBx;
                 _updateUITimer.Interval = 50;
                 _updateUITimer.Tick += UpdateUI;
+                initNotifyicon();
+            }
+
+            void showTimeoutNotification(int duration)
+            {
+                notifyIcon.BalloonTipText = $"Duration ({TimeSpanToString(_timer.InitialDuration)}) is timeout .";
+                notifyIcon.ShowBalloonTip(duration);
             }
 
             void ChangeStatus(Status status)
@@ -271,9 +286,14 @@ namespace Clock
                 return new TimeSpan(StrToInt(parts[0]), StrToInt(parts[1]), StrToInt(parts[2]), StrToInt(parts[3]), StrToInt(parts[4]));
             }
 
+            string TimeSpanToString(TimeSpan ts)
+            {
+                return $"{ts.Days:D3}:{ts.Hours:D2}:{ts.Minutes:D2}:{ts.Seconds:D2}:{ts.Milliseconds:D3}"; 
+            }
+
             private void UpdateTimerLbl(TimeSpan ts)
             {
-                _timerTxtBx.Text = $"{ts.Days:D3}:{ts.Hours:D2}:{ts.Minutes:D2}:{ts.Seconds:D2}:{ts.Milliseconds:D3}";
+                _timerTxtBx.Text = TimeSpanToString(ts);
             }
 
             private void updateTimerPrgrssBr()
@@ -334,6 +354,7 @@ namespace Clock
                 updateTimerPrgrssBr();
                 if (_timer.IsFinished)
                 {
+                    showTimeoutNotification(30);
                     _updateUITimer.Stop();
                     ChangeStatus(Status.Done);
                 }
