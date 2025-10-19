@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ChronoManager.cs" />
+    <Compile Include="Core\CountDownTimer.cs" />
+    <Compile Include="Core\Theme.cs" />
+    <Compile Include="Core\ThemeManager.cs" />
+    <Compile Include="Core\TimerManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
