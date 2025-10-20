@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ChronoLbl = new System.Windows.Forms.Label();
             this.chronoSnapshotsCmbBx = new System.Windows.Forms.ComboBox();
             this.startChronoBtn = new System.Windows.Forms.Button();
@@ -185,10 +186,13 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControl1.Controls.Add(this.chronoTab);
             this.tabControl1.Controls.Add(this.timerTab);
             this.tabControl1.Controls.Add(this.SettingsTab);
+            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(9, 8);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(436, 170);
@@ -211,7 +215,7 @@
             this.chronoTab.Controls.Add(this.stopChronoBtn);
             this.chronoTab.Controls.Add(this.snapshotChronoBtn);
             this.chronoTab.Font = new System.Drawing.Font("MS Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chronoTab.Location = new System.Drawing.Point(4, 22);
+            this.chronoTab.Location = new System.Drawing.Point(4, 4);
             this.chronoTab.Name = "chronoTab";
             this.chronoTab.Padding = new System.Windows.Forms.Padding(3);
             this.chronoTab.Size = new System.Drawing.Size(428, 144);
@@ -301,7 +305,7 @@
             this.timerTab.Controls.Add(this.stopTimerBtn);
             this.timerTab.Controls.Add(this.snapshotTimerBtn);
             this.timerTab.Font = new System.Drawing.Font("MS Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerTab.Location = new System.Drawing.Point(4, 22);
+            this.timerTab.Location = new System.Drawing.Point(4, 4);
             this.timerTab.Name = "timerTab";
             this.timerTab.Padding = new System.Windows.Forms.Padding(3);
             this.timerTab.Size = new System.Drawing.Size(428, 144);
@@ -500,7 +504,7 @@
             // 
             this.SettingsTab.Controls.Add(this.themeCmbBx);
             this.SettingsTab.Controls.Add(this.label3);
-            this.SettingsTab.Location = new System.Drawing.Point(4, 22);
+            this.SettingsTab.Location = new System.Drawing.Point(4, 4);
             this.SettingsTab.Name = "SettingsTab";
             this.SettingsTab.Size = new System.Drawing.Size(428, 144);
             this.SettingsTab.TabIndex = 2;
@@ -538,8 +542,9 @@
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(457, 186);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "SClock";
             this.Load += new System.EventHandler(this.OnLoad);
             this.tabControl1.ResumeLayout(false);
             this.chronoTab.ResumeLayout(false);
