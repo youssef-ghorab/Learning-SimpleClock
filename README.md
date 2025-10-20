@@ -34,18 +34,18 @@
 ### المظهر (Theme)    
 ![image](Images/ThemeTabScrnsht.png)  
 تغيير المظهر العام للبرنامج.  
-  المكونات الساسية :  
-    * المظهر االساطع (Light theme)      : مظهر ساطع مناسب لصباح
-    * المظهر المظلم (Dark theme)      : مظهر مظلم مناسب لليل  
-<ملاحضة 
-<افكر في اضافة ميزة تخصيص المظهر لاحقا  
-
-## طريقة تشغيل المشروع  
-1. انتقل الى git bash , cmd 
-2. اكتب :  
-'''bash
-git clone https://github.com/youssef-ghorab/Learning-SimpleClock
-'''
-3. انتقل الى مجلد امشرع تم اضغط مرتين على SClock.sln لفتحه في Virual studio 
+  المكونات الساسية :    
+* المظهر االساطع (Light theme)      : مظهر ساطع مناسب لصباح  
+* المظهر المظلم (Dark theme)      : مظهر مظلم مناسب لليل    
+<ملاحضة   
+<افكر في اضافة ميزة تخصيص المظهر لاحقا    
+  
+## طريقة تشغيل المشروع    
+1. انتقل الى git bash , cmd   
+2. اكتب :    
+'''bash  
+git clone https://github.com/youssef-ghorab/Learning-SimpleClock  
+'''  
+3. انتقل الى مجلد امشرع تم اضغط مرتين على SClock.sln لفتحه في Virual studio   
 4. اضغط على F5 ليبدا التشغيل
 
